@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Login - Panzer Robotics IoT'])
+@extends('layouts.auth', ['title' => 'Login - Panzer Robotics IoT'])
 @section('content')
 <div class="container mt-5">
     <div class="row justify-content-center">
