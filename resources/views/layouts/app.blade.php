@@ -15,8 +15,16 @@
 
 </head>
 <body>
+    {{-- Sidebar --}}
+    @include('partials.sidebar')
 
-    @yield('content')
+    {{-- Navbar --}}
+    @include('partials.navbar')
+
+    {{-- Main Content --}}
+    <main>
+        @yield('content')
+    </main>
 
     {{-- Optional Javascript --}}
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
