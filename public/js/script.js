@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// const { response } = require("express");
+
 // SIDEBAR DROPDOWN
 const allDropdown = document.querySelectorAll('#sidebar .side-dropdown');
 const sidebar = document.getElementById('sidebar');
@@ -202,97 +204,99 @@ allProgress.forEach(item=> {
 	item.style.setProperty('--value', item.dataset.value)
 })
 
-
-
-
-
-
 // APEXCHART
-// var options = {
-//   series: [{
-//   name: 'series1',
-//   data: [31, 40, 28, 51, 42, 109, 100]
-// }, {
-//   name: 'series2',
-//   data: [11, 32, 45, 32, 34, 52, 41]
-// }],
-//   chart: {
-//   height: 350,
-//   type: 'area'
-// },
-// dataLabels: {
-//   enabled: false
-// },
-// stroke: {
-//   curve: 'smooth'
-// },
-// xaxis: {
-//   type: 'datetime',
-//   categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-// },
-// tooltip: {
-//   x: {
-//     format: 'dd/MM/yy HH:mm'
-//   },
-// },
-// };
+var chartPh, chartDo, chartTemp;
 
-// var chart = new ApexCharts(document.querySelector("#chart"), options);
-// chart.render();
+if (document.querySelector("#chart")) {
+  chartPh = new ApexCharts(document.querySelector("#chart"), {
+    series: [{ name: 'pH', data: [] }],
+    chart: { height: 350, type: 'line', animations: { enabled: true, dynamicAnimation: { speed: 1000 } } },
+    xaxis: { type: 'datetime' },
+    dataLabels: { enabled: false },
+    stroke: { curve: 'smooth' },
+    tooltip: { x: { format: 'HH:mm:ss' } }
+  });
+  chartPh.render();
+}
 
-// Chart pertama
-var options1 = {
-  series: [{
-    name: 'series1',
-    data: [31, 40, 28, 51, 42, 109, 100]
-  }, {
-    name: 'series2',
-    data: [11, 32, 45, 32, 34, 52, 41]
-  }],
-  chart: { height: 350, type: 'area' },
-  dataLabels: { enabled: false },
-  stroke: { curve: 'smooth' },
-  xaxis: {
-    type: 'datetime',
-    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-  },
-  tooltip: { x: { format: 'dd/MM/yy HH:mm' } }
-};
-var chart1 = new ApexCharts(document.querySelector("#chart"), options1);
-chart1.render();
+if (document.querySelector("#chart2")) {
+  chartDo = new ApexCharts(document.querySelector("#chart2"), {
+    series: [{ name: 'DO', data: [] }],
+    chart: { height: 350, type: 'line', animations: { enabled: true, dynamicAnimation: { speed: 1000 } } },
+    xaxis: { type: 'datetime' },
+    dataLabels: { enabled: false },
+    stroke: { curve: 'smooth' },
+    tooltip: { x: { format: 'HH:mm:ss' } }
+  });
+  chartDo.render();
+}
 
-// Chart kedua (bisa pakai data berbeda atau sama)
-var options2 = {
-  series: [{
-    name: 'series1',
-    data: [20, 30, 40, 50, 60, 70, 80]
-  }],
-  chart: { height: 350, type: 'area' },
-  dataLabels: { enabled: false },
-  stroke: { curve: 'smooth' },
-  xaxis: {
-    type: 'datetime',
-    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-  },
-  tooltip: { x: { format: 'dd/MM/yy HH:mm' } }
-};
-var chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
-chart2.render();
+if (document.querySelector("#chart3")) {
+  chartTemp = new ApexCharts(document.querySelector("#chart3"), {
+    series: [{ name: 'Suhu', data: [] }],
+    chart: { height: 350, type: 'line', animations: { enabled: true, dynamicAnimation: { speed: 1000 } } },
+    xaxis: { type: 'datetime' },
+    dataLabels: { enabled: false },
+    stroke: { curve: 'smooth' },
+    tooltip: { x: { format: 'HH:mm:ss' } }
+  });
+  chartTemp.render();
+}
 
-// Chart kedua (bisa pakai data berbeda atau sama)
-var options3 = {
-  series: [{
-    name: 'series1',
-    data: [20, 30, 40, 50, 60, 70, 80]
-  }],
-  chart: { height: 350, type: 'area' },
-  dataLabels: { enabled: false },
-  stroke: { curve: 'smooth' },
-  xaxis: {
-    type: 'datetime',
-    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-  },
-  tooltip: { x: { format: 'dd/MM/yy HH:mm' } }
-};
-var chart3 = new ApexCharts(document.querySelector("#chart3"), options3);
-chart3.render();
+// Fungsi update data chart
+function updateCharts(sensor) {
+  const now = new Date().getTime();
+  if (chartPh) chartPh.appendData([{ data: [{ x: now, y: parseFloat(sensor.ph) }] }]);
+  if (chartDo) chartDo.appendData([{ data: [{ x: now, y: parseFloat(sensor.do) }] }]);
+  if (chartTemp) chartTemp.appendData([{ data: [{ x: now, y: parseFloat(sensor.temp) }] }]);
+}
+
+// ===== AJAX Polling untuk update sensor =====
+// Fungsi convert data ke format ApexCharts
+function mapSensorDataForChart(sensorArray, key) {
+    return sensorArray.map(item => ({
+        x: new Date(item.created_at).getTime(), // pakai timestamp
+        y: parseFloat(item[key])
+    }));
+}
+
+// Fetch sensor terbaru + update chart
+function fetchLatestSensor() {
+    fetch('/api/sensors')
+    .then(response => response.json())
+    .then(res => {
+        console.log('Response dari API:', res); 
+        if (res.success && res.data && res.data.data && res.data.data.length > 0) {
+            const sensors = res.data.data;
+
+            // Update nilai text terakhir
+            const last = sensors[0];
+			const phEl = document.getElementById('ph-value');
+			const doEl = document.getElementById('do-value');
+			const tempEl = document.getElementById('temp-value');
+			const aeratorEl = document.getElementById('aerator-value');
+
+			if (phEl) phEl.textContent = last.ph;
+			if (doEl) doEl.textContent = last.do;
+			if (tempEl) tempEl.textContent = last.temp;
+			if (aeratorEl) aeratorEl.textContent = last.aerator
+
+            // Update chart dengan semua data
+            if (chartPh) chartPh.updateSeries([{ data: mapSensorDataForChart(sensors, 'ph') }]);
+        	if (chartDo) chartDo.updateSeries([{ data: mapSensorDataForChart(sensors, 'do') }]);
+        	if (chartTemp) chartTemp.updateSeries([{ data: mapSensorDataForChart(sensors, 'temp') }]);
+        } else {
+            console.warn('Data sensor kosong.');
+        }
+    })
+    .catch(err => {
+       console.error('Gagal mengambil data sensor:', err);
+	    alert('Gagal mengambil data sensor. Periksa koneksi atau server Anda.');
+    });
+}
+
+// Interval untuk data sensor
+setInterval(fetchLatestSensor, 3000);
+fetchLatestSensor();
+
+

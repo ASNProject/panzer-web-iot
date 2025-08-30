@@ -13,7 +13,7 @@
 					<p></p>
 				</div>
 			</div>
-			<h1>100</h1>
+			<h1 id="ph-value">N/A</h1>
 		</div>
 		<div class="card">
 			<div class="head">
@@ -22,7 +22,7 @@
 					<p>mg/L</p>
 				</div>
 			</div>
-			<h1>100</h1>
+			<h1 id="do-value">N/A</h1>
 		</div>
 		<div class="card">
 			<div class="head">
@@ -31,7 +31,7 @@
 					<p>&#176;C</p>
 				</div>
 			</div>
-			<h1>100</h1>
+			<h1 id="temp-value">N/A</h1>
 		</div>
 		<div class="card">
 			<div class="head">
@@ -40,7 +40,7 @@
 					<p></p>
 				</div>
 			</div>
-			<h1>100</h1>
+			<h1 id="aerator-value">N/A</h1>
 		</div>
 	</div>
 	<div class="data">
